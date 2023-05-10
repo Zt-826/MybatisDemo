@@ -1,4 +1,4 @@
-package com.example.mybatisdemo.mapper;
+package com.example.mybatisdemo.mapper.mysql;
 
 import com.example.mybatisdemo.bean.User;
 import org.apache.ibatis.annotations.Mapper;
@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 @Mapper
-public interface MybatisDemoMapper {
+public interface MysqlMapper {
     List<User> queryAllUsers();
 
     List<User> queryUser(@Param("user") User user);

@@ -1,7 +1,7 @@
 package com.example.mybatisdemo.controller;
 
 import com.example.mybatisdemo.bean.User;
-import com.example.mybatisdemo.service.MybatisDemoService;
+import com.example.mybatisdemo.service.MysqlService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,15 +12,15 @@ import java.util.List;
 public class MybatisDemoController {
 
     @Resource
-    private MybatisDemoService mybatisDemoService;
+    private MysqlService mysqlService;
 
     @RequestMapping("/queryAllUsers")
     public List<User> queryAllUsers() {
-        return mybatisDemoService.queryAllUsers();
+        return mysqlService.queryAllUsers();
     }
 
     @RequestMapping("/queryUser")
     public List<User> queryUser(User user) {
-        return mybatisDemoService.queryUser(user);
+        return mysqlService.queryUser(user);
     }
 }

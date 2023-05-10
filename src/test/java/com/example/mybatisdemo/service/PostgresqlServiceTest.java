@@ -19,10 +19,10 @@ import java.util.Objects;
 
 @Slf4j
 @SpringBootTest
-class MybatisDemoServiceTest {
+class PostgresqlServiceTest {
 
     @Resource
-    private MybatisDemoService service;
+    private PostgresqlService service;
 
     @BeforeEach
     void beforeEach() throws IOException {

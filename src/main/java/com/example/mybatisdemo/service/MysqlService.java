@@ -1,17 +1,20 @@
 package com.example.mybatisdemo.service;
 
 import com.example.mybatisdemo.bean.User;
-import com.example.mybatisdemo.mapper.MybatisDemoMapper;
+import com.example.mybatisdemo.mapper.mysql.MysqlMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.util.Collections;
 import java.util.List;
 
 @Service
-public class MybatisDemoService {
+//@Mysql
+//@Transactional(rollbackFor = Exception.class, value = "transactionalManager")
+@Transactional(rollbackFor = Exception.class, value = "mysqlTransactionalManager")
+public class MysqlService {
     @Resource
-    private MybatisDemoMapper mapper;
+    private MysqlMapper mysqlMapper;
 
     /**
      * 查询所有用户
@@ -19,7 +22,7 @@ public class MybatisDemoService {
      * @return List<User>
      */
     public List<User> queryAllUsers() {
-        return mapper.queryAllUsers();
+        return mysqlMapper.queryAllUsers();
     }
 
     /**
@@ -29,7 +32,7 @@ public class MybatisDemoService {
      * @return List<User>
      */
     public List<User> queryUser(User user) {
-        return mapper.queryUser(user);
+        return mysqlMapper.queryUser(user);
     }
 
     /**
@@ -39,7 +42,7 @@ public class MybatisDemoService {
      * @return int
      */
     public int insertUser(User user) {
-        return mapper.insertUser(user);
+        return mysqlMapper.insertUser(user);
     }
 
     /**
@@ -49,7 +52,7 @@ public class MybatisDemoService {
      * @return int
      */
     public int insertUsers(List<User> users) {
-        return mapper.insertUsers(users);
+        return mysqlMapper.insertUsers(users);
     }
 
     /**
@@ -59,7 +62,7 @@ public class MybatisDemoService {
      * @return int
      */
     public int updateUser(User user) {
-        return mapper.updateUser(user);
+        return mysqlMapper.updateUser(user);
     }
 
     /**
@@ -69,7 +72,7 @@ public class MybatisDemoService {
      * @return int
      */
     public int deleteUser(User user) {
-        return mapper.deleteUser(user);
+        return mysqlMapper.deleteUser(user);
     }
 
     /**
@@ -78,6 +81,6 @@ public class MybatisDemoService {
      * @return int
      */
     public int deleteAllUsers() {
-        return mapper.deleteAllUsers();
+        return mysqlMapper.deleteAllUsers();
     }
 }
